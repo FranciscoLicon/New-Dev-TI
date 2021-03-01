@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<h2>Agregar Mascota</h2>
+
+@if (TempData["mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["mensaje"]</div>
+}
+
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger">@TempData["error"]</div>
+}
+<form  method="post">
+    <table>
+        <tr>
+            <td>Nombre</td>
+            <td>@Html.TextBox("Nombre", null, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>Raza</td>
+            <td>@Html.TextBox("Raza", null, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>Edad</td>
+            <td>@Html.TextBox("Edad", null, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>Especie</td>
+            <td>@Html.TextBox("Especie", null, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>Sexo</td>
+            <td>@Html.TextBox("Sexo", null, new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td><input type="submit" name="name" value="Agregar" class="btn btn-success" /></td>
+            <td><a href="/Home/Index" class="btn btn-danger">Cancelar</a></td>
+        </tr>
+    </table>
+</form>

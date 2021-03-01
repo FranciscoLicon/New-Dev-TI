@@ -1,0 +1,39 @@
+﻿@using WebListaGenerica.Models.Business.Entitys
+@model List<EntMascota>
+@{
+    ViewBag.Title = "Index";
+}
+
+@if(TempData["mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["mensaje"]</div>
+}
+
+@if(TempData["error"] != null)
+{
+    <div class="alert alert-danger">@TempData["error"]</div>
+}
+<table class="table table-striped">
+    <tr>
+        <td>Nombre</td>
+        <td>Raza</td>
+        <td>Edad</td>
+        <td>Especie</td>
+        <td>Sexo</td>
+        <td>Fecha Alta</td>
+        <td>NombreRazaEspecie</td>
+    </tr>
+    @foreach (EntMascota m in Model)
+    {
+        <tr title="Id:@m.Id_Persona">
+            <td>@m.Nombre</td>
+            <td>@m.Raza</td>
+            <td>@m.Edad</td>
+            <td>@m.Especie</td>
+            <td>@m.Sexo</td>
+            <td>@m.FechaAlta</td>
+            <td>@m.NombreRazaEspecie</td>
+        </tr>
+    }
+</table>
+
