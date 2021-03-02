@@ -14,7 +14,7 @@ namespace WebListaGenerica.Models.Data
         public DataTable Obtener()
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
-            SqlDataAdapter da = new SqlDataAdapter("select * from personas order by nombre", con);
+            SqlDataAdapter da = new SqlDataAdapter("select * from mascotas order by nombre", con);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
@@ -23,7 +23,7 @@ namespace WebListaGenerica.Models.Data
         public DataRow Obtener(int id)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
-            SqlDataAdapter da = new SqlDataAdapter("select * from personas where id_persona ="+id, con);
+            SqlDataAdapter da = new SqlDataAdapter("select * from mascotas where id_mascota ="+id, con);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt.Rows[0];
@@ -36,7 +36,7 @@ namespace WebListaGenerica.Models.Data
             try
             {
 
-                SqlCommand cmd = new SqlCommand($"insert into personas values('{nombre}','{raza}',{edad},'{especie}','{sexo}','{fechaAlta}','{nombreRazaEspecie}');",con);
+                SqlCommand cmd = new SqlCommand($"insert into mascotas values('{nombre}','{raza}',{edad},'{especie}','{sexo}','{fechaAlta}','{nombreRazaEspecie}');",con);
                 con.Open();
                 filasAfectadas = cmd.ExecuteNonQuery();
                 con.Close();
@@ -55,7 +55,7 @@ namespace WebListaGenerica.Models.Data
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
             try
             {
-                SqlCommand cmd = new SqlCommand($"update into personas set nombre='{nombre}',raza='{raza}',edad={edad},especie='{especie}',sexo='{sexo}',nombreRazaEspecie='{nombreRazaEspecie}' where id_persona={id};", con);
+                SqlCommand cmd = new SqlCommand($"update into mascotas set nombre='{nombre}',raza='{raza}',edad={edad},especie='{especie}',sexo='{sexo}',nombreRazaEspecie='{nombreRazaEspecie}' where id_mascota={id};", con);
                 con.Open();
                 filasAfectadas = cmd.ExecuteNonQuery();
                 con.Close();
@@ -74,7 +74,7 @@ namespace WebListaGenerica.Models.Data
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
             try
             {
-                SqlCommand cmd = new SqlCommand($"delete personas set where id_persona={id};", con);
+                SqlCommand cmd = new SqlCommand($"delete personas set where id_mascota={id};", con);
                 con.Open();
                 filasAfectadas = cmd.ExecuteNonQuery();
                 con.Close();
@@ -93,7 +93,7 @@ namespace WebListaGenerica.Models.Data
             try
             {
                 bool existe = false;
-                SqlCommand cmd = new SqlCommand($"select 1 from personas where nombre='{nombre}' and raza='{raza}'",con);
+                SqlCommand cmd = new SqlCommand($"select 1 from mascotas where nombre='{nombre}' and raza='{raza}'",con);
                 con.Open();
                 existe = Convert.ToBoolean(cmd.ExecuteScalar());
                 return existe;
@@ -111,7 +111,7 @@ namespace WebListaGenerica.Models.Data
             try
             {
                 bool existe = false;
-                SqlCommand cmd = new SqlCommand($"select 1 from personas where nombre='{nombre}' and raza='{raza}' where id_persona != {id} ", con);
+                SqlCommand cmd = new SqlCommand($"select 1 from mascotas where nombre='{nombre}' and raza='{raza}' where id_mascota != {id} ", con);
                 con.Open();
                 existe = Convert.ToBoolean(cmd.ExecuteScalar());
                 return existe;

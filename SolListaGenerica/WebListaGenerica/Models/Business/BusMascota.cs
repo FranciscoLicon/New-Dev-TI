@@ -24,7 +24,7 @@ namespace WebListaGenerica.Models.Business
                 m.Especie = dr["especie"].ToString();
                 m.Sexo = dr["sexo"].ToString();
                 m.FechaAlta = Convert.ToDateTime(dr["fechaAlta"]);
-                m.Id_Persona = Convert.ToInt32(dr["id_persona"]);
+                m.Id_Mascota = Convert.ToInt32(dr["id_mascota"]);
 
                 ls.Add(m);
             }
@@ -41,7 +41,7 @@ namespace WebListaGenerica.Models.Business
             m.Especie = dr["especie"].ToString();
             m.Sexo = dr["sexo"].ToString();
             m.FechaAlta = Convert.ToDateTime(dr["fechaAlta"]);
-            m.Id_Persona = Convert.ToInt32(dr["id_persona"]);
+            m.Id_Mascota = Convert.ToInt32(dr["id_mascota"]);
     
             return m;
         }
@@ -58,7 +58,7 @@ namespace WebListaGenerica.Models.Business
 
         public void Editar(EntMascota m)
         {
-            int filas = datos.Editar(m.Nombre, m.Raza, m.Edad, m.Especie, m.Sexo, m.NombreRazaEspecie, m.Id_Persona);
+            int filas = datos.Editar(m.Nombre, m.Raza, m.Edad, m.Especie, m.Sexo, m.NombreRazaEspecie, m.Id_Mascota);
             if (filas != 1)
             {
                 throw new ApplicationException("Hay error al Editar " + m.NombreRazaEspecie);
@@ -67,7 +67,7 @@ namespace WebListaGenerica.Models.Business
 
         public void Borrar(EntMascota m)
         {
-            int filas = datos.Borrar(m.Id_Persona);
+            int filas = datos.Borrar(m.Id_Mascota);
             if (filas != 1)
             {
                 throw new ApplicationException("Hay error al Borrar " + m.NombreRazaEspecie);
@@ -85,7 +85,7 @@ namespace WebListaGenerica.Models.Business
 
         public void ValidarNombreRepetidoEditar(EntMascota m)
         {
-            bool existe = datos.ValidarNombreRepetidoEditar(m.Nombre, m.Raza, m.Id_Persona);
+            bool existe = datos.ValidarNombreRepetidoEditar(m.Nombre, m.Raza, m.Id_Mascota);
             if (existe)
             {
                 throw new ApplicationException("Ya existe " + m.NombreRazaEspecie);

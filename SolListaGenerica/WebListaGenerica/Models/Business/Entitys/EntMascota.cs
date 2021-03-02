@@ -7,7 +7,7 @@ namespace WebListaGenerica.Models.Business.Entitys
 {
     public class EntMascota
     {
-        public int Id_Persona { get; set; }
+        public int Id_Mascota { get; set; }
 
         public string Nombre { get; set; }
 

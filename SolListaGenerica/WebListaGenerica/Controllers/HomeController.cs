@@ -56,5 +56,10 @@ namespace WebListaGenerica.Controllers
                 return View("Agregar");
             }
         }
+
+        public ActionResult Prueba()
+        {
+            return View();
+        }
     }
 }
