@@ -1,4 +1,6 @@
-﻿@{
+﻿@using WebListaGenerica.Models.Business.Entitys
+@model  EntMascota
+@{
     Layout = null;
 }
 
@@ -9,7 +11,7 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/MyFonts/material-icon/css/material-design-iconic-font.min.css">
     <link href="~/Styles/AgregarMascota.css" rel="stylesheet" />
-    <title>Nueva Mascota</title>
+    <title>Editar Mascota</title>
 </head>
 <body>
     <div class="main">
@@ -17,23 +19,23 @@
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Nueva Mascota</h2>
+                        <h2 class="form-title">Editar Mascota</h2>
                         <form method="POST" class="register-form" id="form">
                             <div class="form-group">
                                 <label for="Nombre"><i class="zmdi zmdi-circle"></i></label>
-                                <input type="text" name="Nombre" id="Nombre" placeholder="Nombre" required />
+                                <input type="text" name="Nombre" id="Nombre" placeholder="Nombre" value="@Model.Nombre" required />
                             </div>
                             <div class="form-group">
                                 <label for="Raza"><i class="zmdi zmdi-circle"></i></label>
-                                <input type="text" name="Raza" id="Raza" placeholder="Raza" required />
+                                <input type="text" name="Raza" id="Raza" placeholder="Raza" value="@Model.Raza" required />
                             </div>
                             <div class="form-group">
                                 <label for="Edad"><i class="zmdi zmdi-circle"></i></label>
-                                <input type="number" name="Edad" id="Edad" placeholder="Edad" required />
+                                <input type="number" name="Edad" id="Edad" placeholder="Edad" value="@Model.Edad" required />
                             </div>
                             <div class="form-group">
                                 <label for="Especie"><i class="zmdi zmdi-circle"></i></label>
-                                <input type="text" name="Especie" id="Especie" placeholder="Especie" required />
+                                <input type="text" name="Especie" id="Especie" placeholder="Especie" value="@Model.Especie" required />
                             </div>
                             <div class="form-group">
                                 <div class="box">
@@ -44,6 +46,7 @@
                                     </select>
                                 </div>
                             </div>
+                            <input type="hidden" name="Id_Mascota" value="@Model.Id_Mascota">
                             <div class="form-group form-button">
                                 <input type="submit" name="submitButton" id="submitButton" class="form-submit" value="Aceptar" />
                             </div>
@@ -51,7 +54,7 @@
                     </div>
                     <div class="signup-image">
                         <figure><img src="http://www.clker.com/cliparts/j/3/Z/Y/D/5/dog-head-md.png" alt="sing up image"></figure>
-                        <a href="/Home/Index" class="signup-image-link">Ver todas las mascotas</a>
+                        <a href="/Home/Index" class="signup-image-link">Cancelar</a>
                     </div>
                 </div>
             </div>

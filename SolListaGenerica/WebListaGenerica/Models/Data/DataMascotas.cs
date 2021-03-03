@@ -64,7 +64,7 @@ namespace WebListaGenerica.Models.Data
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
             try
             {
-                SqlCommand cmd = new SqlCommand($"update mascotas set nombre='{nombre}',raza='{raza}',edad={edad},especie='{especie}',sexo='{sexo}',nombreRazaEspecie='{nombreRazaEspecie}' where id_mascota={id};", con);
+                SqlCommand cmd = new SqlCommand($"update mascotas set nombre='{nombre}',raza='{raza}',edad={edad},especie='{especie}',sexo='{sexo}',nombreRazaEspecie='{nombreRazaEspecie}' where id_mascota={id}", con);
                 con.Open();
                 filasAfectadas = cmd.ExecuteNonQuery();
                 con.Close();
@@ -120,7 +120,7 @@ namespace WebListaGenerica.Models.Data
             try
             {
                 bool existe = false;
-                SqlCommand cmd = new SqlCommand($"select 1 from mascotas where nombre='{nombre}' and raza='{raza}' where id_mascota != {id} ", con);
+                SqlCommand cmd = new SqlCommand($"select 1 from mascotas where nombre='{nombre}' and raza='{raza}' and id_mascota != {id}", con);
                 con.Open();
                 existe = Convert.ToBoolean(cmd.ExecuteScalar());
                 return existe;

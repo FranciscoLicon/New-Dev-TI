@@ -1916,6 +1916,7 @@
     <Content Include="Views\Home\Prueba.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Agregar.cshtml" />
+    <Content Include="Views\Home\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

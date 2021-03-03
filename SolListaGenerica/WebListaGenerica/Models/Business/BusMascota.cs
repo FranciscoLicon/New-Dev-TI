@@ -99,7 +99,7 @@ namespace WebListaGenerica.Models.Business
             bool existe = datos.ValidarNombreRepetidoAgregar(m.Nombre, m.Raza);
             if (existe)
             {
-                throw new ApplicationException("Ya existe " + m.NombreRazaEspecie);
+                throw new ApplicationException("Ya existe una mascota con el mismo nombre y raza" );
             }
         }
 
@@ -108,7 +108,7 @@ namespace WebListaGenerica.Models.Business
             bool existe = datos.ValidarNombreRepetidoEditar(m.Nombre, m.Raza, m.Id_Mascota);
             if (existe)
             {
-                throw new ApplicationException("Ya existe " + m.NombreRazaEspecie);
+                throw new ApplicationException("Ya existe una mascota con el mismo nombre y raza");
             }
         }
     }

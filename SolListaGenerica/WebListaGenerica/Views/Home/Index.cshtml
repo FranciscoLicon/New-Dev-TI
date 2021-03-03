@@ -44,7 +44,7 @@
                     <p>@m.Nombre</p>
                 </div>
                 <div class="socials">
-                    <a href="@Url.Action("Editar", "Home")" class="far fa-edit"> </a>
+                    <a href="@Url.Action("Editar", "Home", new {id = m.Id_Mascota})" class="far fa-edit"> </a>
                     <a href="@Url.Action("Borrar", "Home", new {id = m.Id_Mascota})" onclick="return confirm('¿Estas seguro de eliminar?')" class="fas fa-trash-alt rojo"> </a>
                 </div>
             </div>

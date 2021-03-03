@@ -271,43 +271,44 @@ select {
 }
 
 .alert {
-    width: 60%;
-    padding: 30px 60px;
+    width: 50%;
+    padding: 20px 60px;
     margin-right: 20%;
+    margin-left:20%;
     position: fixed;
     top: 0;
     transition: all 0.5s;
 }
 
-    .alert.show {
-        transform: translateY(50%);
-    }
+.alert.show {
+    transform: translateY(50%);
+}
 
-    .alert.hide {
-        transform: translateY(-100%);
-    }
+.alert.hide {
+    transform: translateY(-100%);
+}
 
-    .alert .icono-alert {
-        position: absolute;
-        left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 30px;
-    }
+.alert .icono-alert {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+}
 
-    .alert .msg {
-        padding: 0 20px;
-        font-size: 18px;
-    }
+.alert .msg {
+    padding: 0 20px;
+    font-size: 18px;
+}
 
 #alertError {
     background: #f8d7da;
     border-right: 4px solid #da3748;
 }
 
-    #alertError .msg {
-        color: #721c24;
-    }
+#alertError .msg {
+    color: #721c24;
+}
 
 @media screen and (max-width: 1200px) {
     .container {

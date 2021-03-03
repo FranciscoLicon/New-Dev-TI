@@ -62,13 +62,45 @@ namespace WebListaGenerica.Controllers
             {
                 business.ValidarNombreRepetidoAgregar(m);
                 business.Agregar(m);
-                TempData["mensaje"] = "Se agrego correctamente a " + m.NombreRazaEspecie;
+                TempData["mensaje"] = "Se agregó correctamente a " + m.NombreRazaEspecie;
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 TempData["error"] = ex.Message;
                 return View("Agregar");
+            }
+        }
+
+        public ActionResult Editar(int id)
+        {
+            try
+            {
+                EntMascota m = business.Obtener(id);
+                return View(m);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = ex.Message;
+                return View("Index", business.Obtener());
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Editar(EntMascota m)
+        {
+            try
+            {
+                business.ValidarNombreRepetidoEditar(m);
+                business.Editar(m);
+                TempData["mensaje"] = "Se editó correctamente a " + m.NombreRazaEspecie;
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                
+                TempData["error"] = ex.Message;
+                return View("Editar",m);
             }
         }
 
