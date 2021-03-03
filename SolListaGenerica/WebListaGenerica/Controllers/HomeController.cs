@@ -26,6 +26,21 @@ namespace WebListaGenerica.Controllers
             }
         }
 
+        public ActionResult Buscar(string nombreMascota)
+        {
+            try
+            {
+                List<EntMascota> ls = business.Obtener(nombreMascota);
+                return View("Index",ls);
+            }
+            catch (Exception ex)
+            {
+
+                TempData["error"] = ex.Message;
+                return View("Index",new List<EntMascota>());
+            }
+        }
+
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -55,6 +70,13 @@ namespace WebListaGenerica.Controllers
                 TempData["error"] = ex.Message;
                 return View("Agregar");
             }
+        }
+
+        public ActionResult Borrar(int id)
+        {
+            EntMascota m = business.Obtener(id);
+            business.Borrar(m);
+            return View("Index", business.Obtener());
         }
 
         public ActionResult Prueba()

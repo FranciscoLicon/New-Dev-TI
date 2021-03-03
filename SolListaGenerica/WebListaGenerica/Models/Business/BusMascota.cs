@@ -46,6 +46,26 @@ namespace WebListaGenerica.Models.Business
             return m;
         }
 
+        public List<EntMascota> Obtener(string nombreMascota)
+        {
+            DataTable dt = datos.Obtener(nombreMascota);
+            List<EntMascota> ls = new List<EntMascota>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                EntMascota m = new EntMascota();
+                m.Nombre = dr["nombre"].ToString();
+                m.Raza = dr["raza"].ToString();
+                m.Edad = Convert.ToInt32(dr["edad"]);
+                m.Especie = dr["especie"].ToString();
+                m.Sexo = dr["sexo"].ToString();
+                m.FechaAlta = Convert.ToDateTime(dr["fechaAlta"]);
+                m.Id_Mascota = Convert.ToInt32(dr["id_mascota"]);
+
+                ls.Add(m);
+            }
+            return ls;
+        }
+
         public void Agregar(EntMascota m)
         {
             m.FechaAlta = DateTime.Now;

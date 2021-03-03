@@ -1,44 +1,77 @@
-﻿
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/MyFonts/material-icon/css/material-design-iconic-font.min.css">
+    <link href="~/Styles/AgregarMascota.css" rel="stylesheet" />
+    <title>Nueva Mascota</title>
+</head>
+<body>
+    <div class="main">
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Nueva Mascota</h2>
+                        <form method="POST" class="register-form" id="form">
+                            <div class="form-group">
+                                <label for="Nombre"><i class="zmdi zmdi-circle"></i></label>
+                                <input type="text" name="Nombre" id="Nombre" placeholder="Nombre" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="Raza"><i class="zmdi zmdi-circle"></i></label>
+                                <input type="text" name="Raza" id="Raza" placeholder="Raza" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="Edad"><i class="zmdi zmdi-circle"></i></label>
+                                <input type="number" name="Edad" id="Edad" placeholder="Edad" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="Especie"><i class="zmdi zmdi-circle"></i></label>
+                                <input type="text" name="Especie" id="Especie" placeholder="Especie" required />
+                            </div>
+                            <div class="form-group">
+                                <div class="box">
+                                    <select name="Sexo" id="Sexo">
+                                        <option disabled="disabled" selected="selected" value="gender">Sexo</option>
+                                        <option value="macho">Macho</option>
+                                        <option value="hembra">Hembra</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="submitButton" id="submitButton" class="form-submit" value="Aceptar" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="http://www.clker.com/cliparts/j/3/Z/Y/D/5/dog-head-md.png" alt="sing up image"></figure>
+                        <a href="/Home/Index" class="signup-image-link">Ver todas las mascotas</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
 @{
-    ViewBag.Title = "Agregar";
+    Layout = null;
 }
 
-<h2>Agregar Mascota</h2>
+<!DOCTYPE html>
 
-@if (TempData["mensaje"] != null)
-{
-    <div class="alert alert-success">@TempData["mensaje"]</div>
-}
-
-@if (TempData["error"] != null)
-{
-    <div class="alert alert-danger">@TempData["error"]</div>
-}
-<form  method="post">
-    <table>
-        <tr>
-            <td>Nombre</td>
-            <td>@Html.TextBox("Nombre", null, new { @class = "form-control" })</td>
-        </tr>
-        <tr>
-            <td>Raza</td>
-            <td>@Html.TextBox("Raza", null, new { @class = "form-control" })</td>
-        </tr>
-        <tr>
-            <td>Edad</td>
-            <td>@Html.TextBox("Edad", null, new { @class = "form-control" })</td>
-        </tr>
-        <tr>
-            <td>Especie</td>
-            <td>@Html.TextBox("Especie", null, new { @class = "form-control" })</td>
-        </tr>
-        <tr>
-            <td>Sexo</td>
-            <td>@Html.TextBox("Sexo", null, new { @class = "form-control" })</td>
-        </tr>
-        <tr>
-            <td><input type="submit" name="name" value="Agregar" class="btn btn-success" /></td>
-            <td><a href="/Home/Index" class="btn btn-danger">Cancelar</a></td>
-        </tr>
-    </table>
-</form>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Agregar</title>
+</head>
+<body>
+    <div>
+    </div>
+</body>
+</html>

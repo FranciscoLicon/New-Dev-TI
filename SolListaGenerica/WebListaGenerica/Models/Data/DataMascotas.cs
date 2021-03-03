@@ -29,6 +29,15 @@ namespace WebListaGenerica.Models.Data
             return dt.Rows[0];
         }
 
+        public DataTable Obtener(string nombreMascota)
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
+            SqlDataAdapter da = new SqlDataAdapter($"select * from mascotas where nombre like '%{nombreMascota}%'" , con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
         public int Agregar(string nombre, string raza, int edad, string especie, string sexo, string fechaAlta, string nombreRazaEspecie)
         {
             int filasAfectadas = 0;
@@ -55,7 +64,7 @@ namespace WebListaGenerica.Models.Data
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
             try
             {
-                SqlCommand cmd = new SqlCommand($"update into mascotas set nombre='{nombre}',raza='{raza}',edad={edad},especie='{especie}',sexo='{sexo}',nombreRazaEspecie='{nombreRazaEspecie}' where id_mascota={id};", con);
+                SqlCommand cmd = new SqlCommand($"update mascotas set nombre='{nombre}',raza='{raza}',edad={edad},especie='{especie}',sexo='{sexo}',nombreRazaEspecie='{nombreRazaEspecie}' where id_mascota={id};", con);
                 con.Open();
                 filasAfectadas = cmd.ExecuteNonQuery();
                 con.Close();
@@ -74,7 +83,7 @@ namespace WebListaGenerica.Models.Data
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
             try
             {
-                SqlCommand cmd = new SqlCommand($"delete personas set where id_mascota={id};", con);
+                SqlCommand cmd = new SqlCommand($"delete from mascotas where id_mascota={id};", con);
                 con.Open();
                 filasAfectadas = cmd.ExecuteNonQuery();
                 con.Close();

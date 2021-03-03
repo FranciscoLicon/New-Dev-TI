@@ -1,7 +1,89 @@
 ﻿body {
-    background: pink;
+    background: #f8f8f8;
+}
+body header {
+  width: 100%;
+  height: 150px;
+  background-color: #edecfa;
+  display: flex;
+  flex-direction: column;
+}
+body header #top_element {
+    height: 50%;
+    background-color: #edecfa;
 }
 
+body header #main_search_element {
+  height: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body header #main_search_element #search_icon_circle {
+  width: 100px;
+  height: 100px;
+  background: #ffffff;
+  display: block;
+  border-radius: 100px/100px;
+  position: relative;
+  top: -22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in;
+}
+body header #main_search_element #search_icon_circle #search_icon_background {
+  width: 40px;
+  height: 40px;
+  background-color: #908ae0;
+  box-shadow: 10px 10px 20px 0px #d7d3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px/100px;
+  position: relative;
+  top: -15px;
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+}
+body header #main_search_element #search_icon_circle #search_icon_background .fa {
+  color: #ffffff;
+  left: 2px;
+  position: relative;
+}
+body header #main_search_element #search_icon_circle #search_icon_background .fa-times {
+  display: none;
+}
+body header #main_search_element #search_icon_circle #search_icon_background input {
+  transition: all 0.4s ease-in;
+  opacity: 0;
+  width: 0;
+  background: #908ae0;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+body header #main_search_element.expand #search_icon_circle {
+  border-radius: 20px;
+  width: 300px;
+}
+body header #main_search_element.expand #search_icon_circle #search_icon_background {
+  width: 260px;
+  border-radius: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+body header #main_search_element.expand #search_icon_circle #search_icon_background .fa-times {
+  display: block;
+}
+body header #main_search_element.expand #search_icon_circle #search_icon_background input {
+  width: 220px;
+  opacity: 1;
+  padding-left: 10px;
+  outline: none;
+  border: none;
+}
 .row{
     display:flex;
     flex-wrap:wrap;
@@ -27,11 +109,19 @@
     top: 6.6em;
 }
 
+.text{
+    display:flex;
+    align-content:center;
+    justify-content:center;
+    margin-top:10px;
+}
+
 p {
     position: absolute;
     font-family: 'Just Another Hand', cursive;
-    font-size: 1.5em;
-    margin:10px;
+    transform: rotate(-10deg);
+    font-size: 2.0em;
+    margin: 10px;
 }
 
 img {
@@ -41,6 +131,115 @@ img {
 .photo:hover img {
     animation: develop 3s;
     animation-fill-mode: forwards;
+}
+
+.socials {
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top:70px;
+}
+
+.socials i {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color: white;
+    background:  #4568DC;
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 2px 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.socials i:hover {
+    color:  #4568DC;
+    background: transparent;
+    transform: scale(2);
+}
+
+.socials a {
+    text-decoration:none;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color: white;
+    background:  #4568DC;
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 2px 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.socials a:hover {
+    color:  #4568DC;
+    background: transparent;
+    transform: scale(2);
+}
+
+.socials a.verde {
+    text-decoration:none;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color: white;
+    background: green;
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 2px 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.socials a.verde:hover {
+    color:  green;
+    background: transparent;
+    transform: scale(2);
+}
+
+.socials a.morado {
+    text-decoration: none;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color: white;
+    background: #908ae0;
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 150px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.socials a.morado:hover {
+    color:  #908ae0;
+    background: transparent;
+    transform: scale(2);
+}
+.socials a.rojo {
+    text-decoration:none;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color: white;
+    background:  red;
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 2px 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.socials a.rojo:hover {
+    color:  red;
+    background: transparent;
+    transform: scale(2);
 }
 
 @keyframes develop {
