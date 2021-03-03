@@ -1742,6 +1742,7 @@
     <Content Include="Lib\fontawesome-free-5.15.2-web\webfonts\fa-regular-400.svg" />
     <Content Include="Lib\fontawesome-free-5.15.2-web\webfonts\fa-solid-900.svg" />
     <Content Include="Models\JS\Header.js" />
+    <Content Include="Models\JS\Validacion.js" />
     <Content Include="MyFonts\material-icon\css\material-design-iconic-font.css" />
     <Content Include="MyFonts\material-icon\css\material-design-iconic-font.min.css" />
     <Content Include="MyFonts\material-icon\fonts\Material-Design-Iconic-Font.svg" />

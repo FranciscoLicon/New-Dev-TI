@@ -40,7 +40,7 @@
                             <div class="form-group">
                                 <div class="box">
                                     <select name="Sexo" id="Sexo">
-                                        <option disabled="disabled" selected="selected" value="gender">Sexo</option>
+                                        <option disabled="disabled" selected="selected" value="sexo">Sexo</option>
                                         <option value="macho">Macho</option>
                                         <option value="hembra">Hembra</option>
                                     </select>
@@ -69,6 +69,10 @@
             {
                 <span class="msg">@TempData["error"]</span>
             }
+            else
+            {
+                <span class="msg">Todos los campos son obligatorios</span>
+            }
         </div>
     </div>
 
@@ -85,6 +89,7 @@
             }, 2500)
         </script>
     }
+    <script src="~/Models/JS/Validacion.js"></script>
 </body>
 </html>
 
