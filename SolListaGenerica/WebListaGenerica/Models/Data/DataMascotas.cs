@@ -11,7 +11,7 @@ namespace WebListaGenerica.Models.Data
     public class DataMascotas
     {
         
-        public DataTable Obtener()
+        public DataTable ObtenerSinSp()
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
             SqlDataAdapter da = new SqlDataAdapter("select * from mascotas order by nombre", con);
@@ -19,6 +19,18 @@ namespace WebListaGenerica.Models.Data
             da.Fill(dt);
             return dt;
         }
+
+        public DataTable Obtener()
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
+            SqlCommand cmd = new SqlCommand("spObtenerMascotas",con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
 
         public DataRow Obtener(int id)
         {
@@ -38,7 +50,7 @@ namespace WebListaGenerica.Models.Data
             return dt;
         }
 
-        public int Agregar(string nombre, string raza, int edad, string especie, string sexo, string fechaAlta, string nombreRazaEspecie)
+        public int AgregarSinSp(string nombre, string raza, int edad, string especie, string sexo, string fechaAlta, string nombreRazaEspecie)
         {
             int filasAfectadas = 0;
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
@@ -52,6 +64,34 @@ namespace WebListaGenerica.Models.Data
                 return filasAfectadas;
             }
             catch(Exception)
+            {
+                con.Close();
+                throw;
+            }
+        }
+
+        public int Agregar(string nombre, string raza, int edad, string especie, string sexo, string fechaAlta, string nombreRazaEspecie)
+        {
+            int filasAfectadas = 0;
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("spAgregarMascota", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@raza", raza);
+                cmd.Parameters.AddWithValue("@edad", edad);
+                cmd.Parameters.AddWithValue("@especie", especie);
+                cmd.Parameters.AddWithValue("@sexo", sexo);
+                cmd.Parameters.AddWithValue("@fechaAlta", fechaAlta);
+                cmd.Parameters.AddWithValue("@nombreRazaEspecie", nombreRazaEspecie);
+                con.Open();
+                filasAfectadas = cmd.ExecuteNonQuery();
+                con.Close();
+                return filasAfectadas;
+            }
+            catch (Exception)
             {
                 con.Close();
                 throw;

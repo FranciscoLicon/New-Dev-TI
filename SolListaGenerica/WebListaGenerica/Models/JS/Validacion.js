@@ -17,7 +17,7 @@ const validar = (e) => {
             alertError.classList.add('hide');
         }, 2000);
     }
-}
+}   
 
 //Eventos del formulario.
 formulario.addEventListener('submit', validar);
